@@ -1,0 +1,64 @@
+.switch {
+  font-size: 27px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.label {
+  margin-left: 14px;
+  font-size: 17px;
+}
+
+.input {
+  opacity: 0;
+  position: absolute;
+}
+
+.handleWrap {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+  background: #e0e0e0;
+  border-radius: 0.5em;
+  transition: all 0.4s cubic-bezier(0.17, 0.67, 0.43, 0.98);
+  vertical-align: -5px;
+}
+
+.handleWrap:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  top: 4px;
+  left: 4px;
+  background: white;
+  transition: all 0.25s ease-out;
+}
+
+.switch:active .handleWrap:after,
+.handleWrap:active:after {
+  width: 20px;
+}
+
+.input:checked + .handleWrap {
+  box-shadow: inset 0 0 0 0.73em #ffbf33;
+}
+
+.input:checked + .handleWrap:after {
+  left: 28px;
+}
+
+.input:not(:checked) + .handleWrap + span {
+  color: #787878;
+}
+
+.switch:active .input:checked + .handleWrap:after,
+.input:checked + .handleWrap:active:after {
+  left: 24px;
+}
